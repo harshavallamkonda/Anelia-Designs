@@ -1,0 +1,293 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Dark theme - matching exact colors from screenshot with enhanced glossy effects */
+  --background: #1a1a1a; /* Dark background */
+  --foreground: #ffffff; /* White text */
+  --card: #2a2a2a; /* Dark card background */
+  --card-foreground: #ffffff; /* White card text */
+  --popover: #2a2a2a;
+  --popover-foreground: #ffffff;
+  --primary: #d4af37; /* Gold/yellow accent color from screenshot */
+  --primary-foreground: #000000;
+  --secondary: #333333; /* Dark secondary */
+  --secondary-foreground: #ffffff;
+  --muted: #333333; /* Dark muted */
+  --muted-foreground: #a3a3a3; /* Light gray muted text */
+  --accent: #d4af37; /* Gold/yellow accent */
+  --accent-foreground: #000000;
+  --destructive: #ef4444;
+  --border: #404040; /* Dark border */
+  --input: #333333; /* Dark input */
+  --ring: #d4af37; /* Gold ring */
+  --chart-1: #3b82f6;
+  --chart-2: #10b981;
+  --chart-3: #f59e0b;
+  --chart-4: #8b5cf6;
+  --chart-5: #ef4444;
+  --sidebar: #2a2a2a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #333333;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #404040;
+  --sidebar-ring: #d4af37;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Enhanced Custom styles for Anelia Designs with Shiny and Glossy Effects */
+@layer components {
+  .text-gradient {
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #ffed4e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(212, 175, 55, 0.1) 100%);
+  }
+  
+  .section-padding {
+    @apply py-20 px-4;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300;
+    background: linear-gradient(135deg, #2a2a2a 0%, #2a2a2a 100%);
+    border: 1px solid #404040;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    will-change: transform;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.2);
+    border-color: #d4af37;
+    background: linear-gradient(135deg, #2a2a2a 0%, rgba(212, 175, 55, 0.05) 100%);
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+    color: #000000;
+    border: none;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    will-change: transform;
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+    transform: translateY(-2px);
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Enhanced Navigation */
+  nav {
+    backdrop-filter: blur(20px);
+    background: rgba(26, 26, 26, 0.95);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Enhanced Package Cards */
+  .border {
+    border-color: rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .border:hover {
+    border-color: #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  }
+  
+  /* Enhanced Buttons */
+  button {
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background: rgba(212, 175, 55, 0.1);
+  }
+  
+  /* Enhanced Text Colors */
+  .text-foreground {
+    color: #ffffff;
+  }
+  
+  .text-primary {
+    color: #d4af37;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  }
+  
+  .text-muted-foreground {
+    color: #a3a3a3;
+  }
+  
+  /* Enhanced Hover Effects */
+  .hover\:bg-muted:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Enhanced Shadows and Glows */
+  .shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.1);
+  }
+  
+  /* Enhanced Rounded Elements */
+  .rounded-lg {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  /* Enhanced Gradients */
+  .bg-primary\/80 {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.8) 0%, rgba(255, 237, 78, 0.8) 100%);
+  }
+  
+  .bg-accent\/80 {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.8) 0%, rgba(255, 237, 78, 0.8) 100%);
+  }
+  
+  /* WhatsApp floating button */
+  .whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    transition: all 0.3s ease;
+  }
+  
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 4px 4px 8px #999;
+  }
+  
+  /* Professional fonts */
+  .font-heading {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+  }
+  
+  .font-body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+  }
+  
+  /* Performance Optimizations */
+  img {
+    content-visibility: auto;
+    contain-intrinsic-size: 300px 200px;
+  }
+  
+  video {
+    content-visibility: auto;
+    contain-intrinsic-size: 1920px 1080px;
+  }
+  
+  /* Lazy loading optimization */
+  .lazy-load {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .lazy-load.loaded {
+    opacity: 1;
+  }
+}
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 768px) {
+  .section-padding {
+    @apply py-16 px-4;
+  }
+  
+  .text-5xl {
+    font-size: 2.5rem;
+  }
+  
+  .text-7xl {
+    font-size: 3.5rem;
+  }
+  
+  /* Mobile performance optimizations */
+  .card-hover:hover {
+    transform: none; /* Disable hover transforms on mobile for better performance */
+  }
+}
