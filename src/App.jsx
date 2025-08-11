@@ -1,3 +1,4 @@
+// ...existing code...
 import React, { useState } from 'react';
 import './App.css';
 import { Button } from '@/components/ui/button.jsx';
@@ -1952,8 +1953,8 @@ function App() {
     © 2025 Anelia Designs — Where ideas dress up and go out in style.
   </p>
 </div>
+      </footer>
 
-      {/* WhatsApp Floating Button */}
       <a 
         href="https://wa.me/919108867676" 
         className="whatsapp-float flex items-center justify-center"
@@ -1962,6 +1963,7 @@ function App() {
       >
         <MessageCircle className="h-8 w-8" />
       </a>
+
     </div>
   );
 }
